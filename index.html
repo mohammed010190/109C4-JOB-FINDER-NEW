@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081426"><title>109C4 | Job Finder</title>
+<link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+<header class="top"><a class="brand" href="#"><span class="logo">109</span><span><b>109C4</b><small>JOB FINDER</small></span></a><nav><a href="#search">البحث</a><a href="#saved">المحفوظات</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">منصة البحث عن الفرص الوظيفية</div><h1>وظيفتك القادمة<br><em>تبدأ من هنا.</em></h1><p>ابحث عن إعلانات منشورة، قارن تفاصيلها، واحفظ الفرص التي تناسبك.</p><a class="cta" href="#search">ابدأ البحث <span>←</span></a></section>
+<section id="search" class="panel">
+<div class="section-title"><div><small>اكتشف الفرص</small><h2>ابحث عن وظيفة</h2></div><span class="live">● مصدر مباشر</span></div>
+<form id="searchForm">
+<label class="query-label">المسمى الوظيفي أو كلمة مفتاحية<input id="q" placeholder="مثال: Accountant, Data Entry, HR Specialist" required></label>
+<div class="filters">
+<label>الدولة<select id="country"><option value="sa">السعودية</option><option value="">كل الدول</option><option value="ae">الإمارات</option><option value="kw">الكويت</option><option value="qa">قطر</option><option value="bh">البحرين</option><option value="om">عُمان</option></select></label>
+<label>المدينة / المنطقة<input id="city" placeholder="الدمام، الخبر، الرياض..."></label>
+<label>تاريخ النشر<select id="age"><option value="0">كل التواريخ</option><option value="1">آخر 24 ساعة</option><option value="7">آخر 7 أيام</option><option value="30">آخر 30 يومًا</option></select></label>
+<label>الترتيب<select id="sort"><option value="new">الأحدث أولًا</option><option value="old">الأقدم أولًا</option></select></label>
+<label>نمط العمل<select id="remote"><option value="">الكل</option><option value="true">عن بُعد</option></select></label>
+</div><button class="primary" id="go">ابحث عن الوظائف</button>
+</form>
+<div id="status" class="status">اكتب المسمى الوظيفي واضغط بحث لعرض الإعلانات المتاحة.</div>
+<div id="results" class="results"></div>
+<p class="attribution">بيانات الوظائف مقدمة من <a href="https://devglobaljobs.com" target="_blank" rel="noopener">Powered by Dev Global Jobs</a>. تبقى روابط الإعلانات الأصلية محفوظة.</p>
+</section>
+<section id="saved" class="panel"><div class="section-title"><div><small>قائمة المتابعة</small><h2>وظائفي المحفوظة</h2></div><span id="count" class="count">0</span></div><div id="savedList" class="results empty">لم تحفظ وظائف بعد.</div></section>
+</main><footer>109C4 JOB FINDER · نسخة تأسيسية</footer>
+<script src="app.js"></script></body></html>
