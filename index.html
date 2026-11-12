@@ -1,30 +1,139 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#081426"><title>109C4 | Job Finder</title>
-<link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081426">
+  <meta name="description" content="109C4 Job Finder — bilingual job search">
+  <title>109C4 | Job Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
-<header class="top"><a class="brand" href="#"><span class="logo">109</span><span><b>109C4</b><small>JOB FINDER</small></span></a><nav><a href="#search">البحث</a><a href="#saved">المحفوظات</a></nav></header>
-<main>
-<section class="hero"><div class="eyebrow">منصة البحث عن الفرص الوظيفية</div><h1>وظيفتك القادمة<br><em>تبدأ من هنا.</em></h1><p>ابحث عن إعلانات منشورة، قارن تفاصيلها، واحفظ الفرص التي تناسبك.</p><a class="cta" href="#search">ابدأ البحث <span>←</span></a></section>
-<section id="search" class="panel">
-<div class="section-title"><div><small>اكتشف الفرص</small><h2>ابحث عن وظيفة</h2></div><span class="live">● مصدر مباشر</span></div>
-<form id="searchForm">
-<label class="query-label">المسمى الوظيفي أو كلمة مفتاحية<input id="q" placeholder="مثال: Accountant, Data Entry, HR Specialist" required></label>
-<div class="filters">
-<label>الدولة<select id="country"><option value="sa">السعودية</option><option value="">كل الدول</option><option value="ae">الإمارات</option><option value="kw">الكويت</option><option value="qa">قطر</option><option value="bh">البحرين</option><option value="om">عُمان</option></select></label>
-<label>المدينة / المنطقة<input id="city" placeholder="الدمام، الخبر، الرياض..."></label>
-<label>تاريخ النشر<select id="age"><option value="0">كل التواريخ</option><option value="1">آخر 24 ساعة</option><option value="7">آخر 7 أيام</option><option value="30">آخر 30 يومًا</option></select></label>
-<label>الترتيب<select id="sort"><option value="new">الأحدث أولًا</option><option value="old">الأقدم أولًا</option></select></label>
-<label>نمط العمل<select id="remote"><option value="">الكل</option><option value="true">عن بُعد</option></select></label>
-</div><button class="primary" id="go">ابحث عن الوظائف</button>
-</form>
-<div id="status" class="status">اكتب المسمى الوظيفي واضغط بحث لعرض الإعلانات المتاحة.</div>
-<div id="results" class="results"></div>
-<p class="attribution">بيانات الوظائف مقدمة من <a href="https://devglobaljobs.com" target="_blank" rel="noopener">Powered by Dev Global Jobs</a>. تبقى روابط الإعلانات الأصلية محفوظة.</p>
-</section>
-<section id="saved" class="panel"><div class="section-title"><div><small>قائمة المتابعة</small><h2>وظائفي المحفوظة</h2></div><span id="count" class="count">0</span></div><div id="savedList" class="results empty">لم تحفظ وظائف بعد.</div></section>
-</main><footer>109C4 JOB FINDER · نسخة تأسيسية</footer>
-<script src="app.js"></script></body></html>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="109C4 Job Finder">
+      <span class="brand-mark">109</span>
+      <span class="brand-copy"><strong>109C4</strong><small>JOB FINDER</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#search" data-i18n="navSearch">البحث</a>
+      <a href="#saved" data-i18n="navSaved">المحفوظات</a>
+    </nav>
+    <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">EN</button>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="heroEyebrow">منصة البحث عن الفرص الوظيفية</span>
+        <h1><span data-i18n="heroTitleA">وظيفتك القادمة</span><br><em data-i18n="heroTitleB">تبدأ من هنا.</em></h1>
+        <p data-i18n="heroDescription">ابحث عن إعلانات الوظائف، صفِّ النتائج، واحفظ الفرص المناسبة لك في مكان واحد.</p>
+        <a class="hero-cta" href="#search"><span data-i18n="heroButton">ابدأ البحث</span><span aria-hidden="true">←</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="job-tile"><span>109C4</span><b>JOB<br>FINDER</b><small>Find your next step</small></div>
+      </div>
+    </section>
+
+    <section id="search" class="panel">
+      <div class="section-heading">
+        <div><span class="eyebrow" data-i18n="searchEyebrow">اكتشف الفرص</span><h2 data-i18n="searchTitle">ابحث عن وظيفة</h2></div>
+        <span class="source-pill"><i></i><span data-i18n="liveSource">مصدر مباشر</span></span>
+      </div>
+
+      <form id="searchForm">
+        <label class="field query-field">
+          <span data-i18n="keywordLabel">المسمى الوظيفي أو كلمة مفتاحية</span>
+          <input id="q" type="search" value="" placeholder="مثال: Accountant, Data Entry, HR Specialist" autocomplete="off" required>
+        </label>
+
+        <div class="filter-heading"><span data-i18n="filtersTitle">تصفية النتائج</span><small data-i18n="filtersHint">يمكنك الجمع بين أكثر من فلتر</small></div>
+        <div class="filters-grid">
+          <label class="field"><span data-i18n="countryLabel">الدولة</span>
+            <select id="country">
+              <option value="sa" data-ar="السعودية" data-en="Saudi Arabia">السعودية</option>
+              <option value="" data-ar="كل الدول" data-en="All countries">كل الدول</option>
+              <option value="ae" data-ar="الإمارات" data-en="United Arab Emirates">الإمارات</option>
+              <option value="kw" data-ar="الكويت" data-en="Kuwait">الكويت</option>
+              <option value="qa" data-ar="قطر" data-en="Qatar">قطر</option>
+              <option value="bh" data-ar="البحرين" data-en="Bahrain">البحرين</option>
+              <option value="om" data-ar="عُمان" data-en="Oman">عُمان</option>
+              <option value="eg" data-ar="مصر" data-en="Egypt">مصر</option>
+              <option value="gb" data-ar="المملكة المتحدة" data-en="United Kingdom">المملكة المتحدة</option>
+              <option value="us" data-ar="الولايات المتحدة" data-en="United States">الولايات المتحدة</option>
+              <option value="ca" data-ar="كندا" data-en="Canada">كندا</option>
+            </select>
+          </label>
+
+          <label class="field"><span data-i18n="regionLabel">المنطقة</span>
+            <select id="region">
+              <option value="" data-ar="كل المناطق" data-en="All regions">كل المناطق</option>
+              <option value="riyadh" data-ar="منطقة الرياض" data-en="Riyadh Region">منطقة الرياض</option>
+              <option value="eastern" data-ar="المنطقة الشرقية" data-en="Eastern Province">المنطقة الشرقية</option>
+              <option value="makkah" data-ar="منطقة مكة المكرمة" data-en="Makkah Region">منطقة مكة المكرمة</option>
+              <option value="madinah" data-ar="منطقة المدينة المنورة" data-en="Madinah Region">منطقة المدينة المنورة</option>
+              <option value="qassim" data-ar="منطقة القصيم" data-en="Qassim Region">منطقة القصيم</option>
+              <option value="asir" data-ar="منطقة عسير" data-en="Asir Region">منطقة عسير</option>
+              <option value="tabuk" data-ar="منطقة تبوك" data-en="Tabuk Region">منطقة تبوك</option>
+              <option value="hail" data-ar="منطقة حائل" data-en="Hail Region">منطقة حائل</option>
+              <option value="jazan" data-ar="منطقة جازان" data-en="Jazan Region">منطقة جازان</option>
+              <option value="najran" data-ar="منطقة نجران" data-en="Najran Region">منطقة نجران</option>
+              <option value="baha" data-ar="منطقة الباحة" data-en="Al Baha Region">منطقة الباحة</option>
+              <option value="jouf" data-ar="منطقة الجوف" data-en="Al Jouf Region">منطقة الجوف</option>
+              <option value="northern" data-ar="الحدود الشمالية" data-en="Northern Borders">الحدود الشمالية</option>
+            </select>
+          </label>
+
+          <label class="field"><span data-i18n="cityLabel">المدينة (اختياري)</span>
+            <input id="city" type="text" placeholder="الدمام أو Dammam">
+          </label>
+
+          <label class="field"><span data-i18n="dateLabel">تاريخ النشر</span>
+            <select id="age">
+              <option value="0" data-ar="كل التواريخ" data-en="Any time">كل التواريخ</option>
+              <option value="1" data-ar="آخر 24 ساعة" data-en="Last 24 hours">آخر 24 ساعة</option>
+              <option value="7" data-ar="آخر 7 أيام" data-en="Last 7 days">آخر 7 أيام</option>
+              <option value="30" data-ar="آخر 30 يومًا" data-en="Last 30 days">آخر 30 يومًا</option>
+            </select>
+          </label>
+
+          <label class="field"><span data-i18n="sortLabel">ترتيب النتائج</span>
+            <select id="sort">
+              <option value="new" data-ar="الأحدث أولًا" data-en="Newest first">الأحدث أولًا</option>
+              <option value="old" data-ar="الأقدم أولًا" data-en="Oldest first">الأقدم أولًا</option>
+            </select>
+          </label>
+
+          <label class="field"><span data-i18n="workLabel">نمط العمل</span>
+            <select id="remote">
+              <option value="" data-ar="الكل" data-en="All work modes">الكل</option>
+              <option value="true" data-ar="عن بُعد" data-en="Remote">عن بُعد</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button id="go" class="primary-button" type="submit"><span data-i18n="searchButton">ابحث عن الوظائف</span><span aria-hidden="true">⌕</span></button>
+          <button id="resetFilters" class="secondary-button" type="button" data-i18n="resetButton">مسح الفلاتر</button>
+        </div>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite" data-i18n="initialStatus">اكتب المسمى الوظيفي واضغط بحث لعرض الإعلانات المتاحة.</div>
+      <div id="results" class="results"></div>
+      <div class="source-credit"><span data-i18n="sourceCredit">مصدر بيانات الوظائف:</span> <a href="https://devglobaljobs.com" target="_blank" rel="noopener">Powered by Dev Global Jobs</a>. <span data-i18n="sourceNote">افتح الإعلان الأصلي للتحقق من التفاصيل والتقديم.</span></div>
+    </section>
+
+    <section id="saved" class="panel saved-panel">
+      <div class="section-heading">
+        <div><span class="eyebrow" data-i18n="savedEyebrow">قائمة المتابعة</span><h2 data-i18n="savedTitle">وظائفي المحفوظة</h2></div>
+        <span id="count" class="count">0</span>
+      </div>
+      <div id="savedList" class="results empty" data-i18n="savedEmpty">لم تحفظ وظائف بعد.</div>
+      <p class="storage-note" data-i18n="storageNote">المحفوظات في هذه النسخة تُحفظ على هذا المتصفح والجهاز فقط.</p>
+    </section>
+  </main>
+  <footer>109C4 JOB FINDER <span>·</span> <span data-i18n="footerText">بحث أوضح عن فرصتك القادمة</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
